@@ -26,10 +26,11 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  // iterate over array backwards
+  for (var i = array.length - 1; i >= 0; i--){
+    // log values
+    console.log(array[i]);
+  }
   // YOUR CODE ABOVE HERE //
 }
 
