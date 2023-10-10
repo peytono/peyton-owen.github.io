@@ -2,6 +2,8 @@
 
 'use strict';
 
+// create a query that describes what you're trying to do
+
 /**
  * IN CLASS EXERCISE: MY FIRST TEST
  * 
@@ -18,7 +20,8 @@
 function print(value) {
   // YOUR CODE BELOW HERE //
   
-  
+  //use console.log to print input value
+  console.log(value);
   
   // YOUR CODE ABOVE HERE //
 }
