@@ -60,22 +60,32 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  // iterate over object
+  for (var key in object){
+    // log keys
+    console.log(key);
+  }
   // YOUR CODE ABOVE HERE //
 }
+
+//console.log(printObjectKeys({name: 'Peyton', age: 24, home: 'New Orleans'}));
+
 
 /** 
  * Given an input Object, return an Array containing the Object's values.
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  // create output array
+  var valueArray = [];
+  // iterate over object
+  for (var key in object){
+    // push object values into output array
+    valueArray.push(object[key]);
+  }
+  // return output array
+  //console.log(valueArray);
+  return valueArray;
   // YOUR CODE ABOVE HERE //
 }
 
@@ -85,10 +95,11 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  // iterate over object
+    for (var key in object){
+      // log values
+      console.log(object[key]);
+    }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -97,12 +108,20 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  // create count at 0
+  var count = 0;
+  // iterate over object
+  for (var key in object){
+    // add 1 to count each time
+    count += 1;
+  }
+  // return count
+  return count;
   // YOUR CODE ABOVE HERE //
 }
+
+//console.log(getObjectLength({name: 'Peyton', age: 24, home: 'New Orleans'}));
+
 
 /** 
  * Given an input Object, how might we loop over the Object IN REVERSE and 
@@ -110,10 +129,18 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  // create array to hold object values
+  var valuesArr = [];
+  // iterate through object
+  for (var key in object){
+    // unshift values to array
+    valuesArr.unshift(object[key]);
+  }
+  // iterate through array
+  for (var i = 0; i < valuesArr.length; i++){
+    // log values
+    console.log(valuesArr[i]);
+  }
   // YOUR CODE ABOVE HERE //
 }
 
