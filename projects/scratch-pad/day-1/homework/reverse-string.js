@@ -21,10 +21,15 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+    // create variable to hold reversed string
+    var reversedString = '';
+    // create for loop to iterate through input string in reverse
+    for (var i = input.length - 1; i >= 0; i--) {
+      // on each iteration concat current index value to reversed string
+      reversedString += input[i];
+    }
+    // return reversed string
+    return reversedString;
     // YOUR CODE GOES ABOVE HERE //
 }
 
