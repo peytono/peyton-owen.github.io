@@ -68,8 +68,11 @@ function createEndsWithFilter(endsWith) {
  * 
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
+ * 
+ * let uppercase = modifyStrings(['a', 'b', 'c'], function(string) { return string.toUpperCase() }); // ['A', 'B', 'C']
+ * 
  */
-function modifyStrings(strings, modify) {
+function modifyStrings(strings, modify) { //modify is a FUNCTION
     // YOUR CODE BELOW HERE //
     
     
@@ -87,7 +90,7 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
-function allStringsPass(strings, test) {
+function allStringsPass(strings, test) { // test is a FUNCTION - that will return true of false
     // YOUR CODE BELOW HERE //
     
     
