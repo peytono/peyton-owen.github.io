@@ -20,6 +20,8 @@ function isArray(value) {
     // YOUR CODE ABOVE HERE //
 }
 
+console.log(isArray([1, 2, 3]));
+
 /** 
  * Given an input value, return true if the value is an Object intended as a 
  * collection, false if otherwise.
@@ -29,11 +31,24 @@ function isArray(value) {
  * with typeof.
  */
 function isObject(value) {
-    // YOUR CODE BELOW HERE //
-    // create if statement to first eliminate array, null, or date
-    
-    
-    
+    //YOUR CODE BELOW HERE 
+    // create if statement to eliminate string, number, boolean, undefined
+    if (typeof value !== 'object'){
+        return false;
+        //create if statement to eliminate array
+    } else if (Array.isArray(value)){
+        return false;
+        // create if statement to eliminate null
+    } else if (value === null){
+        return false;
+        // create if statement to eliminate date
+    } else if (value instanceof Date){
+        return false;
+    } else if (typeof value === 'object'){
+        return true;
+    }
+    //now check to see
+    return typeof value;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -45,10 +60,18 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // make sure if value is not object returns false
+    if (typeof value !== 'object'){
+        return false;
+        // create if statement to eliminate null
+    } else if (value === null){
+        return false;
+        // create if statement to eliminate date
+    } else if (value instanceof Date){
+        return false;
+    } else if (typeof value === 'object'){
+        return true;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -73,7 +96,28 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    if (typeof value === 'string'){
+        return 'string';
+    } else if (typeof value === 'number'){
+        return 'number';
+    } else if (typeof value === 'boolean'){
+        return 'boolean';
+    } else if (typeof value === 'undefined'){
+        return 'undefined';
+    } else if (typeof value === 'function'){
+        return 'function';
+    } else if (Array.isArray(value)){
+        //create if statement to eliminate array
+        return 'array';
+        // create if statement to eliminate null
+    } else if (value === null){
+        return 'null';
+        // create if statement to eliminate date
+    } else if (value instanceof Date){
+        return 'date';
+    } else if (typeof value === 'object'){
+        return 'object';
+    }
     
     
     
