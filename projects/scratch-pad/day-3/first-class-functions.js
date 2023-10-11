@@ -10,13 +10,36 @@
  * Given an input base to test against, which could be a String or Number, 
  * return a Function that tests whether a given value is greater than the 
  * base.
+ * 
+ * I: String or Number
+ * O: A Function that tests whether a given value is greater than the base
+ * C: Should check input for data type - and return a function to test whether that value is greater
+ * E: N/A
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // create if statement to check whether input is number or string
+    if (typeof base === 'number'){
+        console.log(typeof base);
+        // create anonymous func for number return
+        // return a Function that tests whether a Number value is greater than the base
+        return function(value){
+            // should check if value is larger than base
+            if(value > base){ 
+                console.log(value + ' , ' + base);
+                return true; 
+            } else { console.log(base > value); console.log(value + ' , ' + base); return false; }
+        };
+    } else if (typeof base === 'string'){
+        console.log(typeof base);
+        // create anonymous func for string return
+        return function(value){
+            // should check if value is larger than base
+            if(value > base){
+                return true;
+            } else { return false; }
+        };
+    }
     // YOUR CODE ABOVE HERE //
 }
 
