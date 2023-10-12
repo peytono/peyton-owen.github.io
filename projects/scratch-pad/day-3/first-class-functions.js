@@ -157,13 +157,19 @@ function modifyStrings(strings, modify) { //modify is a FUNCTION
  * begin with "C", or they are all exclaimations that end with "!".
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
+ * 
+ * I: array of strings and a function to test string, returns true if ALL strings pass
  */
 function allStringsPass(strings, test) { // test is a FUNCTION - that will return true of false
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // create for loop to iterate through strings
+    for (var i = 0; i < strings.length; i++){
+        // on each iteration test string
+        if(!test(strings[i])){
+            return false;
+        }
+    }
+    return true;
     // YOUR CODE ABOVE HERE //
 }
 
