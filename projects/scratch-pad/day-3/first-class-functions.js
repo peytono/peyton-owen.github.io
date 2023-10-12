@@ -20,24 +20,29 @@ function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     // create if statement to check whether input is number or string
     if (typeof base === 'number'){
-        console.log(typeof base);
+        // console.log(typeof base);
         // create anonymous func for number return
         // return a Function that tests whether a Number value is greater than the base
         return function(value){
             // should check if value is larger than base
-            if(value > base){ 
-                console.log(value + ' , ' + base);
+            /* if(value > base){ 
+                // console.log(value + ' , ' + base);
                 return true; 
-            } else { console.log(base > value); console.log(value + ' , ' + base); return false; }
+            } else { 
+                // console.log(base > value); 
+                // console.log(value + ' , ' + base); 
+                return false; } */
+                return value > base;
         };
     } else if (typeof base === 'string'){
-        console.log(typeof base);
+        //console.log(typeof base);
         // create anonymous func for string return
         return function(value){
             // should check if value is larger than base
-            if(value > base){
+            /* if(value > base){
                 return true;
-            } else { return false; }
+            } else { return false; } */
+            return value > base;
         };
     }
     // YOUR CODE ABOVE HERE //
@@ -47,13 +52,29 @@ function createGreaterThanFilter(base) {
  * Given an input base to test against, which could be a String or Number, 
  * return a Function that tests whether a given value is less than the 
  * base.
+ * 
+ * I: a String or Number
+ * O: a Function thats tests whether a given value is less than the base
+ * C: returns a function
+ * E: N/A
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // test if base is a number
+    if (typeof base === 'number'){
+        // return a function that takes param value
+        return function (value){
+            //should test if value is less than base
+            return value < base;
+        };
+    // test if base is a string
+    } else if (typeof base === 'string'){
+        // return a function that takes param value
+        return function(value){
+            //should test if value is less than base
+            return value < base;
+        };
+    }
     // YOUR CODE ABOVE HERE //
 }
 
