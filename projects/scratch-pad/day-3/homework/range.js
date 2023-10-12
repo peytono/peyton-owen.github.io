@@ -20,12 +20,36 @@
  *  a. create something to collect the output you'll return.
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
+ * 
+ * I: two integers as parameters
+ * O: returns array of all numbers between parameters, inclusively
+ * C: loop, output array, push()
+ * E: can go forwards or backwards
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
+    // create storage array
+    var numsInRange = [];
+    var count = start;
+    // create if statement to check if start is greater than end
+    if (start > end){
+        // if so create loop to iterate between numbers inclusively
+        while (count >= end){
+            // push each number to storage array
+            numsInRange.push(count);
+            count--;
+        }
+     // else create loop to iterate between numbers inclusively
+    } else {
+        while(count <= end){
+            // push each number to storage array
+            numsInRange.push(count);
+            count++;
+        }
+    }
+    // return storage array
+    console.log(numsInRange);
+    return numsInRange;
     
     // YOUR CODE GOES ABOVE HERE //
 }
