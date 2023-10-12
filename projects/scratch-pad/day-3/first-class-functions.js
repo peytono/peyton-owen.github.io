@@ -127,13 +127,25 @@ function createEndsWithFilter(endsWith) {
  * 
  * let uppercase = modifyStrings(['a', 'b', 'c'], function(string) { return string.toUpperCase() }); // ['A', 'B', 'C']
  * 
+ * I: an array of strings and a function that should take string as a param
+ * O: modified array of strings
+ * C: loop, new collection
+ * E: N/A
  */
 function modifyStrings(strings, modify) { //modify is a FUNCTION
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // create output array
+    var modifiedStrings = [];
+    // create temporary holder for modified string
+    var modifiedString = '';
+    // create for loop to iterate through strings
+    for (var i = 0; i < strings.length; i++){
+        modifiedString = modify(strings[i]);
+        modifiedStrings.push(modifiedString);
+    }
+        // modify string and push to output array
+    // return output array
+    return modifiedStrings;
     // YOUR CODE ABOVE HERE //
 }
 
