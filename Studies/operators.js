@@ -1,0 +1,1 @@
+// must show every single example of operators in code, except for unary, only needing one example
