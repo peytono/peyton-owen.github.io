@@ -12,27 +12,48 @@
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
+var animal = {};
+animal.species = 'cat';
+animal['name'] = 'Prince';
+animal.noises = [];
+console.log(animal);
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+var noises = [];
+noises[0] = 'meow';
+noises.push('trill');
+noises.unshift('growl');
+noises[noises.length] = 'purr';
+
+console.log(noises.length);
+console.log(noises[noises.length - 1]);
+console.log(noises);
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+animal['noises'] = noises;
+animal.noises.push('chirping');
 
+console.log(animal);
 
 /* *******************************************************************
  * Step 4 - Review
  *
  * 1. What are the different ways you can access properties on objects?
+ * 
+ * Bracket or dot notation
+ *  - dot notation can only be used when using literal key name
  *
  * 2. What are the different ways of accessing elements on arrays?
  *
+ * Bracket notation allowing you to access elements on arrays 
+ *  - it's accessed by index value, which does not have to be hard coded
  * *******************************************************************
  */
 
@@ -49,11 +70,58 @@
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+var animals = [];
 
+animals.push(animal);
+
+console.log(animals);
+
+var duck = {
+  species: 'duck',
+  name: 'Jerome',
+  noises: ['quack', 'honk', 'sneeze', 'woosh']
+};
+
+animals.push(duck);
+
+console.log(animals);
+
+var dog = {
+  species: 'dog',
+  name: 'Buddha',
+  noises: ['bark', 'whine']
+};
+
+var dog2 = {
+  species: 'dog',
+  name: 'Jax', 
+  noises: ['howl', 'growl']
+}
+
+animals.push(dog, dog2);
+
+console.log(animals);
+console.log(animals.length);
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+// assigning friends to an array because it's a collection of names w/o any corresponding keys, all values are just examples of friends
+var friends = [];
+
+function getRandom(animals){
+  return Math.floor(Math.random() * animals.length);
+}
+
+console.log('index: ', getRandom(animals));
+
+friends.push(animals[getRandom(animals)].name);
+console.log('friends: ', friends);
+
+animals[0]['friends'] = friends;
+
+console.log(animals);
 
 
 
