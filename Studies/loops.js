@@ -49,17 +49,18 @@ for (var key in person) {
 // 2. Be able to loop any number of times, forward counting up to some limit, backward counting down to 0. //
 
 // Loop forward couting up to some limit
-var tooManyNumbers = [] // initializes a variable numbers to an empty array
+var tooManyNumbers = [] // initializes a variable tooManyNumbers to an empty array
 for (var a = 0; a < 200; a++){ // the for loop will start at zero, will go until a is less than 200, and will increment by 1 everytime
     tooManyNumbers.unshift(a); // will add the current value of a to the beginning of the tooManyNumbers array on every iteration
 }
+console.log(tooManyNumbers); // an array containing numbers 0-199
 
 // Loop backward counting down to 0
-var threeHundredToZero = [];
-for (var y = 300; y >= 0; y--){
-    threeHundredToZero.push(y);
+var threeHundredToZero = []; // initializes variable threeHundredToZero to an empty array
+for (var y = 300; y >= 0; y--){ // starts loop at 300 and works backwards one at a time
+    threeHundredToZero.push(y); // push value of y to threeHundredToZero on every iteration
 }
-
+console.log(threeHundredToZero); // an array containing numbers 300-0
 
 // 3. Loop over an Array, forwards and backwards //
 
