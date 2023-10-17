@@ -47,7 +47,38 @@ for (var key in person) {
 
 
 // 2. Be able to loop any number of times, forward counting up to some limit, backward counting down to 0. //
+
+// Loop forward couting up to some limit
 var tooManyNumbers = [] // initializes a variable numbers to an empty array
 for (var a = 0; a < 200; a++){ // the for loop will start at zero, will go until a is less than 200, and will increment by 1 everytime
     tooManyNumbers.unshift(a); // will add the current value of a to the beginning of the tooManyNumbers array on every iteration
 }
+
+// Loop backward counting down to 0
+var threeHundredToZero = [];
+for (var y = 300; y >= 0; y--){
+    threeHundredToZero.push(y);
+}
+
+
+// 3. Loop over an Array, forwards and backwards //
+
+// Loop forwards over an array
+for (var index = 0; index < numbers.length; index++){ // iterates through numbers array starting at the 0 index[5, 10, 15...125]
+    numbers[index] += 5; // adds 5 to every number in array one at a time
+}
+console.log(numbers); // logs numbers array to console [10, 15, 20, 25...130]
+
+// Loop backards over an array
+for (index = numbers.length - 1; index >= 0; index--){ // iterates through numbers array starting at the last index
+    numbers[index] -= 5; // subtracts 5 from every number in a array one at a time
+}
+console.log(numbers); // logs numbers array to console [5, 10, 15...125]
+
+
+// 4. Loop over an object //
+var personCopy = {}; // initializes personCopy to an empty object
+for (var key in person) { // starts for in loop to iterate over person object
+    personCopy[key] = person[key]; // adds the current key in iteration to key in personCopy w/ value being the current iterations value
+}
+console.log(personCopy); // logs personCopy which is now the same as person
