@@ -133,7 +133,7 @@ _.last = function(array, number) {
     } else if(number > array.length) {
         return array;
     }else { // [1, 2, 3, 4], 3 => [2, 3, 4] need to figure out how to only display the last given elements
-        // return array.splice(number);
+        return array.splice(array.length - number);
     };
 }
 
