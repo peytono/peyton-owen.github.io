@@ -139,15 +139,22 @@ function isFriend(name, object) {
 //takes in a name and a list of people, and returns a list of names that the name is not friends with
 function nonFriends(name, array) {
     // create array of non friends
+    /*
     var nonFriends = [];
-    // iterate through list of people
+    // create array of people
+    var people = [];
+    // iterate through array and push the first property value into array of people
     for(var i = 0; i < array.length; i++) {
-        // if a name in array is not in friends of that person and the name of that person
-        
-        // push to non friends
+        people.push(array[i].name); // people = ['Jimmy', 'Bob', 'Liza', 'Sara'];
     }
+    // select the object with property value of name matching name given in argument 
+    
+    // iterate through that object
+    for (var key in object)
+        // if name isn't name value and isn't in people push to non-friends
     // return array of non friends
-    return nonFriends;
+    return nonFriends; 
+    */
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -164,7 +171,12 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for(var i = 0; i < array.length; i++) {
+        if (object.hasOwnProperty(array[i])) {
+            delete object[array[i]];
+        }
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -172,7 +184,12 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    /*
+    let noDups = [];
+    for (let i = 0; i < array.length; i++){
+        if(array[i] === array[i + 1])
+    }
+    */
 }
 
 //////////////////////////////////////////////////////////////////////
