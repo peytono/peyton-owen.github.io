@@ -3,7 +3,11 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var _ = {};
+// const { values } = require("lodash");
+
+// Functional library => a library of functions
+
+var _ = {}; // _ => underscore object
 
 
 /**
@@ -21,6 +25,12 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+
+_.identity = function(value) {
+    return value;
+};
+
+// using do notation to add a key of identity to the _ object and I'm adding a function as the value
 
 /** _.typeOf
 * Arguments:
@@ -42,6 +52,25 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function(value){
+    // create if statement chain to return the variable type of as a string
+    if(typeof value === "string") {
+        return "string";
+    } else if(typeof value === "undefined") {
+        return "undefined";
+    } else if(typeof value === "number") {
+        return "number";
+    } else if(typeof value === "boolean") {
+        return "boolean";
+    } else if(value === null) {
+        return "null";
+    } else if(typeof value === "function") {
+        return "function";
+    } else if(Array.isArray(value)) {
+        return "array";
+    } else { return "object"}
+};
+
 
 /** _.first
 * Arguments:
@@ -61,6 +90,19 @@ var _ = {};
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(array, number){
+    // if array given is not an array return an empty array
+    if(!Array.isArray(array)) {
+        return [];
+    } 
+    // if number is not given or not a number return only the first element in array
+    if(typeof number !== "number") {
+        return array[0];
+    // otherwise return the first <number> of items in array
+    } else { 
+        return array.splice(0, number);
+    }
+}
 
 /** _.last
 * Arguments:
@@ -80,6 +122,20 @@ var _ = {};
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number) {
+    if (!Array.isArray(array)) {
+        return [];
+    }
+    if (typeof number !== "number") {
+        return array[array.length - 1];
+    } else if(number < 0) {
+        return [];
+    } else if(number > array.length) {
+        return array;
+    }else { // [1, 2, 3, 4], 3 => [2, 3, 4] need to figure out how to only display the last given elements
+        // return array.splice(number);
+    };
+}
 
 /** _.indexOf
 * Arguments:
@@ -97,6 +153,17 @@ var _ = {};
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value) {
+    // iterate through array to find value
+    for(let i = 0; i < array.length; i++) {
+        // if found return index number
+        if(array[i] === value) {
+            return i;
+        } 
+    }
+    // else return -1
+    return -1;
+}
 
 /** _.contains
 * Arguments:
@@ -113,10 +180,14 @@ var _ = {};
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value) {
+    // iterate through array to check for value
+    return array.includes(value) ? true : false;
+}
 
 /** _.each
 * Arguments:
-*   1) A collection
+*   1) A collection // array or an object
 *   2) A function
 * Objectives:
 *   1) if <collection> is an array, call <function> once for each element
@@ -126,9 +197,26 @@ var _ = {};
 *      with the arguments:
 *         the property's value, it's key, <collection>
 * Examples:
-*   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
+*   _.each(["a","b","c"], function(e,i,a){ console.log(e)}); // logging e each iteration
 *      -> should log "a" "b" "c" to the console
 */
+
+
+_.each = function(collection, func){
+    // if collection is an array
+    if (Array.isArray(collection)) {
+        for(let i = 0; i < collection.length; i++){
+            func(collection[i], i, collection); // invoking the function on each element in the array
+        }
+    } else { // else it's an object
+        for(let key in collection){
+            func(collection[key], key, collection); // invoking function on each value in the array
+        }
+    }
+    
+}
+
+// _.each => array.forEach()
 
 
 /** _.unique
@@ -141,6 +229,10 @@ var _ = {};
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array){
+    // use _.indexOf()
+    // returns new array of all elements with no duplicates
+}
 
 /** _.filter
 * Arguments:
