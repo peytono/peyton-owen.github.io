@@ -139,6 +139,9 @@ function isFriend(name, object) {
 //takes in a name and a list of people, and returns a list of names that the name is not friends with
 function nonFriends(name, array) {
     // create array of non friends
+    
+    // iterate through objects in data 
+        // for every object that's not the input name
     /*
     var nonFriends = [];
     // create array of people

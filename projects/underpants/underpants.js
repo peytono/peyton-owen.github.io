@@ -224,14 +224,25 @@ _.each = function(collection, func){
 *   1) An array
 * Objectives:
 *   1) Return a new array of all elements from <array> with duplicates removed
-*   2) Use _.indexOf() from above
+*   2) Use _.indexOf() from above => has params array and value, returns the index of value in array or -1 if no such value in array
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
 _.unique = function(array){
-    // use _.indexOf()
+    // create new array that does not hold dupes
+    let uniqueArr = [];
+    // loop through array
+    for(let i = 0; i < array.length; i++){
+        // call indexOf w/ args uniqueArr and value on current iteration of array
+            // if -1 push to uniqueArr array
+        if(_.indexOf(uniqueArr, array[i]) === -1){
+            uniqueArr.push(array[i]);
+        }
+
+    }
     // returns new array of all elements with no duplicates
+    return uniqueArr;
 }
 
 /** _.filter
@@ -251,6 +262,21 @@ _.unique = function(array){
 */
 
 
+_.filter = function(array, func){
+    // create array from elements that pass true
+    let trueArr = [];
+    // loop through 
+    for(let i = 0; i < array.length; i++){
+        // if call func on element is true pass to trueArr
+        if(func(array[i], i, array)){
+            trueArr.push(array[i]);
+        }
+    }
+    // returns array of elements that passed true
+    return trueArr;
+}
+
+
 /** _.reject
 * Arguments:
 *   1) An array
@@ -263,6 +289,15 @@ _.unique = function(array){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+
+_.reject = function(array, func){
+    // create array for values that return false
+    // use for loop to iterate through array
+        // call func w/ arguments array[i], i, array
+            // push value to falseArr
+    //
+}
 
 
 /** _.partition
@@ -333,7 +368,48 @@ _.unique = function(array){
 * Examples:
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
+    _.every(['a', 1, 'b']); => true
+    _.every([null, 1, 2]); => false
 */
+
+
+_.every = function(collection, func){
+    // determine if collection is an array
+    if(Array.isArray(collection)){
+        //determine if func was not provided
+        if(!func){
+            for(let i = 0; i < collection.length; i++){
+                if(!func(collection[i])) {
+                    return false;
+                }
+            }
+        //func was provided
+        } else {
+            // iterate through elements in collection
+            for(let i = 0; i < collection.length; i++)
+                // if return for call func on any element is false return false
+                if(!func(collection[i])) {
+                    return false;
+                // else return for call func on every element is true return true
+                }
+
+        }
+    // else its an object
+    } else {
+        //determine if func was not provided
+        if(!func){
+            for(let key in collection){
+                if(!collection[key]){
+                    return false;
+                } 
+            }
+        // func was provided
+        } else {
+
+        }
+    }
+    return true;
+}
 
 
 /** _.some
