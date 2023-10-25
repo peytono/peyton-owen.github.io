@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+// const { property } = require("lodash");
+
 // const { values } = require("lodash");
 
 // Functional library => a library of functions
@@ -291,12 +293,20 @@ _.filter = function(array, func){
 */
 
 
-_.reject = function(array, func){
+_.reject = (array, func) => {
     // create array for values that return false
+    let falseArr = [];
     // use for loop to iterate through array
-        // call func w/ arguments array[i], i, array
+    for(let i = 0; i < array.length; i++){
+        // call func w/ arguments array[i], i, array testing if false
+        if(!func(array[i], i, array)){
             // push value to falseArr
-    //
+            falseArr.push(array[i]);
+        }
+
+    }
+    // return falseArr
+    return falseArr;
 }
 
 
@@ -319,6 +329,26 @@ _.reject = function(array, func){
 }
 */
 
+_.partition = (array, func) => {
+    // create true array and false array
+    let trueArr = [], falseArr = [];
+    // create a for loop to call func on each element in array
+    for(let i = 0; i < array.length; i++){
+        // if func call returns truthy
+        if(func(array[i], i, array)){
+            // push element to truthy array
+            trueArr.push(array[i]);
+        } else {
+            // else func return falsy push to false array
+            falseArr.push(array[i]);
+        }
+
+    }
+    // create partitionArray containing both arrays
+    let partitionArray = [trueArr, falseArr];
+    // return both arrays
+    return partitionArray;
+}
 
 /** _.map
 * Arguments:
@@ -336,6 +366,26 @@ _.reject = function(array, func){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = (collection, func) => {
+    // create return value array
+    let returnValues = [];
+    // determine if collection is array
+    if(Array.isArray(collection)){
+        // if array test func on every element in array, passing element, index, and collection
+        for(let i = 0; i < collection.length; i++){
+            // push value into return array
+            returnValues.push(func(collection[i], i, collection));
+        }
+    } else {
+        // else object test func on each prop passing in value, key, and collection
+        for(let key in collection){
+            // push value into return array
+            returnValues.push(func(collection[key], key, collection));
+        }
+    }
+    // return array
+    return returnValues;
+}
 
 /** _.pluck
 * Arguments:
@@ -347,6 +397,15 @@ _.reject = function(array, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = (array, property) => {
+   // invoke _.map() to create a new array of only the values at the input prop
+   let output = _.map(array, function(item){
+    return item[property];
+   });
+   // return result of invoking _.map()
+   return output;
+}
 
 
 /** _.every

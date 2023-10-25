@@ -48,14 +48,59 @@ function fizzBuzz(count, end) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(x) { // x represents the rows and columns of the chessboard
+  
 
 }
-/* LOGS
+/* drawChessboard(2); LOGS
+ #
+#
+*/
+// " #\n# \n"
+
+/* drawChessboard(3); LOGS
   #
  # #
   #
 */
 // " # \n# #\n # \n"
+
+/* drawChessboard(4); LOGS
+ # #
+# # 
+ # #
+# #
+*/
+// " # #\n# # \n # #\n# # \n"
+
+/* drawChessboard(5); LOGS
+ # # 
+# # #
+ # #
+# # #
+ # #
+*/
+// " # # \n# # #\n # # \n# # #\n # #\n"
+
+/* drawChessboard(6); LOGS
+ # # #
+# # #
+ # # #
+# # #
+ # # #
+# # #
+*/
+// " # # #\n# # # \n # # #\n# # # \n # # #\n# # # \n"
+
+/* drawChessboard(7); LOGS
+ # # # 
+# # # #
+ # # #
+# # # #
+ # # #
+# # # #
+ # # #
+*/
+// " # # # \n# # # #\n # # # \n# # # #\n # # # \n# # # #\n # # # \n"
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
