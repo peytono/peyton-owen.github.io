@@ -138,26 +138,20 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 //takes in a name and a list of people, and returns a list of names that the name is not friends with
 function nonFriends(name, array) {
-    // create array of non friends
-    
+    // create array of friends
+    let friends = [];
     // iterate through objects in data 
-        // for every object that's not the input name
-    /*
-    var nonFriends = [];
-    // create array of people
-    var people = [];
-    // iterate through array and push the first property value into array of people
-    for(var i = 0; i < array.length; i++) {
-        people.push(array[i].name); // people = ['Jimmy', 'Bob', 'Liza', 'Sara'];
+    for(let i = 0; i < array.length; i++){
+        // for every object that's not the input name 
+        // does jimmy exist in friends array
+        if(name !== array[i].name && !array[i].friends.includes(name)){
+            // if so push into array of friends
+            friends.push(array[i].name);
+        }
+
     }
-    // select the object with property value of name matching name given in argument 
-    
-    // iterate through that object
-    for (var key in object)
-        // if name isn't name value and isn't in people push to non-friends
-    // return array of non friends
-    return nonFriends; 
-    */
+    // return array of friends
+    return friends;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -187,12 +181,18 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-    /*
+    // create new array that will not hold duplications
     let noDups = [];
-    for (let i = 0; i < array.length; i++){
-        if(array[i] === array[i + 1])
+    // loop through array
+    for(let i = 0; i < array.length; i++){
+       // if current element does not exist in noDups
+       if(!noDups.includes(array[i])){
+           // add to noDups
+            noDups.push(array[i]);
+       }
     }
-    */
+    // return noDups array
+    return noDups;
 }
 
 //////////////////////////////////////////////////////////////////////
