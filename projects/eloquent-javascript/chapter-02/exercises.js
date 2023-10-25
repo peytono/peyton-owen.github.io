@@ -11,14 +11,36 @@ triangles(3);
 
 */
 function triangles(x) { // x represents the number of 'rows' in the triangle
-
+  // create string pound
+  let pound = '#';
+  // create for loop to iterate until x, starting at one and increasing by one
+  for(let i = 1; i <= x; i++){
+    // log amount x number of # each iteration
+    console.log(pound.repeat(i));
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function fizzBuzz() {
-  
+// should accept two params, count and end
+function fizzBuzz(count, end) {
+  // should create a for loop starting at count that iterates through end
+  for(count; count <= end; count++) {
+    // if count is divisble by 3 and 5 log fizzbuzz
+    if(count % 3 === 0 && count % 5 === 0) {
+      console.log('fizzbuzz');
+    // else if count is divisible by 3 log fizz
+    } else if(count % 3 === 0) {
+      console.log('fizz');
+    // else if count is divisible by 5 log buzz
+    } else if(count % 5 === 0) {
+      console.log('buzz');
+    // else log count
+    } else {
+      console.log(count);
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
