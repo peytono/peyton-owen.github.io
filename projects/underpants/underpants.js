@@ -438,20 +438,21 @@ _.every = function(collection, func){
         //determine if func was not provided
         if(!func){
             for(let i = 0; i < collection.length; i++){
-                if(!func(collection[i])) {
+                // determine if the current item is TRUTHY
+                if(!collection[i]) {
                     return false;
                 }
             }
-        //func was provided
+        //else func was provided
         } else {
             // iterate through elements in collection
-            for(let i = 0; i < collection.length; i++)
+            for(let i = 0; i < collection.length; i++){
                 // if return for call func on any element is false return false
                 if(!func(collection[i])) {
                     return false;
-                // else return for call func on every element is true return true
                 }
-
+                
+            }
         }
     // else its an object
     } else {
@@ -464,7 +465,11 @@ _.every = function(collection, func){
             }
         // func was provided
         } else {
-
+            for(let key in collection){
+                if(!func(collection[key], key, collection)){
+                    return false;
+                }
+            }
         }
     }
     return true;
