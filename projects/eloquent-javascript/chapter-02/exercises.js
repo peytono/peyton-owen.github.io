@@ -48,7 +48,24 @@ function fizzBuzz(count, end) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(x) { // x represents the rows and columns of the chessboard
-  
+  // create string to hold chessboard
+  let chessboard = [];
+  // odd row string
+  let oddRow = ' #';
+  oddRow = oddRow.repeat(x);
+  // even row string
+  let evenRow = '# ';
+  evenRow = evenRow.repeat(x);
+  // create for loop to add characters to string
+  for(let i = 1; i <= x; i++){
+    if(i % 2 !== 0){ // create odd row
+      chessboard.push(oddRow.slice(0, x));
+    } else { // create even row
+      chessboard.push(evenRow.slice(0, x));
+    }
+  }
+  // return chessboard
+  console.log(chessboard.join('\n') + '\n');
 
 }
 /* drawChessboard(2); LOGS
