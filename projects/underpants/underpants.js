@@ -497,6 +497,57 @@ _.every = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = (collection, func) => {
+    // determine if collection is array
+    if(Array.isArray(collection)){
+        // determine if func is undefined
+        if(!func){
+            // create loop to iterate through array
+            for(let i = 0; i < collection.length; i++){
+                // test every value for truthy
+                if(collection[i]){
+                    // return true if a single value is true
+                    return true;
+                }
+            }
+        // else it is
+        } else {
+            // create for loop to iterate through array
+            for(let i = 0; i < collection.length; i++){
+                // call func on every element with params current element, idex, collection
+                if(func(collection[i], i, collection)){
+                    // if true on a single element return true
+                    return true;
+                }
+            }
+        }
+    // else is object
+    } else {
+        // determine if func is undefined
+        if(!func){
+            // create for in loop to iterate through object
+            for(let key in collection){
+                // test each value for truthy
+                if(collection[key]){
+                    // return true if a single value is truthy
+                    return true;
+                }
+            }
+        // else it is
+        } else {
+            // create for in loop to iterate through object
+            for(let key in collection){
+                // call func on every value of object w/ params current value, current key, collection
+                if(func(collection[key], key, collection)){
+                    // if true on a sigle element return true
+                    return true;
+                }
+            }
+        }
+    }
+    // returns false if nothing is truthy
+    return false;
+}   
 
 /** _.reduce
 * Arguments:
