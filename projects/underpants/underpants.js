@@ -517,6 +517,24 @@ _.every = function(collection, func){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed){
+    let result;
+
+  // determine if the seed value doesn't exist
+  if (seed === undefined){
+    result = array[0]; // first item in array is assigned to result
+    for(let i = 1; i < array.length; i++){
+      result = func(result, array[i], i);
+    }
+  // else it does
+  } else {
+    result = seed; // result = 0
+    for(let i = 0; i < array.length; i++){
+      result = func(result, array[i], i); // result is being reassigned the RESULT of invoking the callback function
+    }
+  }
+  return result;
+}
 
 /** _.extend
 * Arguments:
