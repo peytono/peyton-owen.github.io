@@ -32,7 +32,7 @@ _.identity = function(value) {
     return value;
 };
 
-// using do notation to add a key of identity to the _ object and I'm adding a function as the value
+// using dot notation to add a key of identity to the _ object and I'm adding a function as the value
 
 /** _.typeOf
 * Arguments:
