@@ -29,7 +29,19 @@ var maleCount = function(array) {
     return males.length;
 };
 
-var femaleCount;
+var femaleCount = function(array) {
+    let numberFemales = _.reduce(array, function(accumulator, customer){
+        // determine if customer is female
+        if(customer.gender === 'female'){
+            // if true increment accumulator
+            return accumulator++;
+        }
+    }, 0);
+
+    return numberFemales;
+};
+
+console.log(femaleCount());
 
 var oldestCustomer;
 
