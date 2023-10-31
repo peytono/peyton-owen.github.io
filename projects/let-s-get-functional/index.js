@@ -34,14 +34,15 @@ var femaleCount = function(array) {
         // determine if customer is female
         if(customer.gender === 'female'){
             // if true increment accumulator
-            return accumulator++;
+            accumulator += 1;
+            return accumulator;
+        } else {
+            return accumulator;
         }
     }, 0);
 
     return numberFemales;
 };
-
-console.log(femaleCount());
 
 var oldestCustomer;
 

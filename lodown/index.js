@@ -332,6 +332,8 @@ function pluck(array, property){
        return output;
 };
 
+module.exports.pluck = pluck;
+
 /**
  * every: Function takes in a collection and a function. 
  * Function first determines if <collection> is array or object, 
