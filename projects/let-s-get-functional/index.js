@@ -44,11 +44,60 @@ var femaleCount = function(array) {
     return numberFemales;
 };
 
-var oldestCustomer;
 
-var youngestCustomer;
+// find oldest customer's name
+var oldestCustomer = (array) =>{
+    // use reduce to access every customers age and find the oldest
+    let oldest = _.reduce(array, (currentOldest, customer) => {
+        // determine if customer is older than current oldest customer
+        if(currentOldest.age < customer.age){
+            // if so reassign current oldest to current customer
+            currentOldest = customer;
+            // return the current oldest object
+            return currentOldest;
+        } else {
+            // return the current oldest object
+            return currentOldest;
+        }
+    });
+    // return string of oldest customer's name
+    return oldest.name;
+};
 
-var averageBalance;
+var youngestCustomer = (array) => {
+    // use reduce to access every customer object
+    let youngest = _.reduce(array, (currentYoungest, customer) => {
+        // determine if current customer is younger than currentYoungest
+        if(currentYoungest.age > customer.age){
+            // if so reassign currentYoungest to current customer
+            currentYoungest = customer;
+            // return currentYoungest
+            return currentYoungest;
+            // else do not change current youngest
+        } else {
+            return currentYoungest;
+        }
+    });
+    // return the youngest customers name
+    return youngest.name;
+};
+
+// find the average balance of all customers
+var averageBalance = (array) => {
+    // use map to create an array of account balance numbers
+    let balances = _.map(array, (i) => {
+        return Number(i.balance.replace(/[$,]/g, ''));
+    });
+    // use reduce to add total of balances
+    let totalBalances = _.reduce(balances, (accumulator, current) =>{
+        accumulator += current;
+        return accumulator;
+    }, 0);
+    // divide total balances by length of balcances
+    let averageB = totalBalances / balances.length;
+    // return average balance
+    return averageB;
+};
 
 var firstLetterCount;
 
