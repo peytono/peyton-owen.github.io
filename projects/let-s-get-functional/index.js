@@ -99,9 +99,41 @@ var averageBalance = (array) => {
     return averageB;
 };
 
-var firstLetterCount;
+// find how many customers names begin with a given letter
+var firstLetterCount = (array, letter) => {
+    // use reduce to go through array and accumulate amount of target first letter names
+    let amountFirstLetter = _.reduce(array, (accumulator, current) => {
+        // if current first letter matches letter add 1 to accumulator
+        if(current.name[0].toLowerCase() === letter.toLowerCase()){
+            return accumulator + 1;
+        } else {
+            return accumulator;
+        }
+    }, 0);
+    return amountFirstLetter;
+};
 
-var friendFirstLetterCount;
+// find how many friends of a given customer have names that start with a given letter
+var friendFirstLetterCount = (array, customer, letter) => {
+    // select the object in array that belongs to customer using reduce and select the friends property
+    let customerFriendsForSearch = _.reduce(array, (nameToMatch, current) => {
+        if(current.name === customer){
+            nameToMatch = current;
+            return nameToMatch.friends;
+        }
+    });
+    console.log(customerFriendsForSearch);
+    // use reduce to go through customerFriendsForSearchs and accumulate first letter friends
+    let amountFriendFirstLetter = _.reduce(customerFriendsForSearch, (accumulator, current) => {
+        if(current.name[0].toLowerCase() === letter.toLowerCase()){
+            return accumulator + 1;
+        } else {
+            return accumulator;
+        }
+    }, 0);
+
+    return amountFriendFirstLetter;
+};
 
 var friendsCount;
 
