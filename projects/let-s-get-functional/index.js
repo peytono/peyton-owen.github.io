@@ -116,18 +116,23 @@ var firstLetterCount = (array, letter) => {
 // find how many friends of a given customer have names that start with a given letter
 var friendFirstLetterCount = (array, customer, letter) => {
     // select the object in array that belongs to customer using reduce and select the friends property
-    let customerFriendsForSearch = _.reduce(array, (nameToMatch, current) => {
+    let customerForSearch = _.reduce(array, (nameToMatch, current) => {
         if(current.name === customer){
             nameToMatch = current;
-            return nameToMatch.friends;
+            return nameToMatch;
+        } else {
+            return nameToMatch;
         }
     });
-    console.log(customerFriendsForSearch);
+    let customerFriends = customerForSearch.friends;
     // use reduce to go through customerFriendsForSearchs and accumulate first letter friends
-    let amountFriendFirstLetter = _.reduce(customerFriendsForSearch, (accumulator, current) => {
+    let amountFriendFirstLetter = _.reduce(customerFriends, (accumulator, current) => {
+        //console.log(customerFriends);
         if(current.name[0].toLowerCase() === letter.toLowerCase()){
+            //console.log(accumulator);
             return accumulator + 1;
         } else {
+            //console.log(accumulator);
             return accumulator;
         }
     }, 0);
@@ -135,8 +140,16 @@ var friendFirstLetterCount = (array, customer, letter) => {
     return amountFriendFirstLetter;
 };
 
-var friendsCount;
-
+// find the customers' names that have a given customers's name in their friends list
+var friendsCount = (array, name) => {
+    // use filter to go through all customers friends lists and see if it includes name
+    /*
+    let friendsArr = _.filter(array, (i) => {
+        if(i.friends){}
+    });
+    return friendsArr;
+    */
+};
 var topThreeTags;
 
 var genderCount;
