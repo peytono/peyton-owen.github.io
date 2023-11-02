@@ -170,8 +170,53 @@ var topThreeTags = (array) => {
         }
         return acc;
     }, {});
-    console.log(tagCount);
+    //console.log(tagCount);
+    // turn tag count into an array of object
+    let tagEntries = Object.entries(tagCount);
+    //console.log(tagEntries);
+    // use filter to return tags that appear 3 times
+    let topThree = _.filter(tagEntries, (tag) => {
+        for(let i = 0; i < tag.length; i++){
+            if(tag[i] >= 3){
+                return true;
+            };
+        }
+        return;
+    });
+    //console.log(topThree);
+    // use map to take first values from arrays and put into a new array
+    let refitTopThree = _.map(topThree, (i) => {
+        return i[0];
+    });
+    //console.log(refitTopThree);
+    return refitTopThree;
 };
+
+/*
+let tagArr = _.map(tagCount, function(value, key){
+    return { [key] : value };
+});
+
+console.log(tagArr);
+return tagArr;
+*/
+
+/*
+// use reduce to create an object counting the use of tags
+    let tagCount = _.reduce(array, (acc, current) => {
+        for(let i = 0; i < current.tags.length; i++){
+            if(acc.hasOwnProperty(current.tags[i])){
+                acc[current.tags[i]] += 1;
+                
+            } else {
+                acc[current.tags[i]] = 1;
+                
+            }
+        }
+        return acc;
+    }, {});
+    console.log(tagCount);
+*/
 
 
 /* 
