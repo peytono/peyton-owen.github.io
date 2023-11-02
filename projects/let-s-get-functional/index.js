@@ -142,17 +142,59 @@ var friendFirstLetterCount = (array, customer, letter) => {
 
 // find the customers' names that have a given customers's name in their friends list
 var friendsCount = (array, name) => {
-    // use filter to go through all customers friends lists and see if it includes name
-    /*
-    let friendsArr = _.filter(array, (i) => {
-        if(i.friends){}
+   // filter through friends list, looking for object that have name in friends array
+    let friendsArr = _.filter(array, (customer) => {
+        for(let i = 0; i < customer.friends.length; i++){
+            if(customer.friends[i].name === name){
+                return true;
+            };
+        }
+        return false;
     });
-    return friendsArr;
-    */
+    let friendList = _.map(friendsArr, customer => customer.name);
+    return friendList;
 };
-var topThreeTags;
 
-var genderCount;
+// Find the three most common tags among all customers' associated tags
+var topThreeTags = (array) => {
+    // use reduce to create an object counting the use of tags
+    let tagCount = _.reduce(array, (acc, current) => {
+        for(let i = 0; i < current.tags.length; i++){
+            if(acc.hasOwnProperty(current.tags[i])){
+                acc[current.tags[i]] += 1;
+                
+            } else {
+                acc[current.tags[i]] = 1;
+                
+            }
+        }
+        return acc;
+    }, {});
+    console.log(tagCount);
+};
+
+
+/* 
+Create a summary of genders, the output should be:
+{
+    male: 3,
+    female: 4,
+    non-binary: 1
+}
+*/
+var genderCount = (array) => {
+    let genderBreakdown = _.reduce(array, (acc, current) => {
+        if(acc.hasOwnProperty(current.gender)){
+            acc[current.gender] += 1;
+            return acc;
+        } else {
+            acc[current.gender] = 1;
+            return acc;
+        }
+    }, {});
+    return genderBreakdown;
+};
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
