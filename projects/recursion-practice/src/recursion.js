@@ -52,32 +52,33 @@ var isEven = function(n) {
 };
 
 // 5. Sum all integers below a given integer.
-// sumBelow(10); // 45
-// sumBelow(7); // 21
+// sumBelow(10); // 45 => 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1
+// sumBelow(7); // 21 => 6 + 5 + 4 + 3 + 2 + 1
+// sumBelow(-7); // -21 => -6 + -5 + -4 + -3 + -2 + -1
 var sumBelow = function(n, output = 0) {
-  //base
-  if(output === 0){
-    if(n > 0) {
-      n--;
-    } else if(n < 0) {
-      n++;
-    }
-  } else if(n === 0){
-    return output;
+  // base
+  if(n === 0){
+      return output;
   }
   // recursion
+  if(output === 0){
+    if(n === 1 || n === -1){
+      return 0;
+    } else if(n > 0){
+      n--;
+    } else if(n < 0){
+      n++;
+    }
+  } 
   output += n;
   if(n > 0){
     return sumBelow(n - 1, output);
-  } else if(n < 0){
+  } else if (n < 0){
     return sumBelow(n + 1, output);
   }
-
+  
 
 };
-
-/*
-*/
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
