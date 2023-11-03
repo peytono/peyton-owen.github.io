@@ -174,8 +174,6 @@ var palindrome = function(string, stringAltered = '', reversed = '') {
   }
 };
 
-// checking git is back up
-
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
 // modulo(5,2) // 1
@@ -187,7 +185,24 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x, y) {
+var multiply = function(x, y, output = 0) {
+  if(y === 0 || x === 0){
+    return output;
+  }
+  
+  if(x < 0 && y < 0){
+    x = x - x - x;
+    y = y - y - y;
+    return multiply(x, y, output);
+  } else if(output === 0){
+    output = x;
+    return multiply(x, y - 1, output);
+  } else {
+    output += x;
+    if(x > 0 && y > 0 || x < 0 && y > 0){
+      return multiply(x, y - 1, output);
+    } 
+  }
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -209,6 +224,14 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  // base
+
+  // recursion
+  if(str1[0] !== str2[0]){
+    return false;
+  } else {
+    return compareStr(str1.slice(1), str2.slice(1));
+  }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
