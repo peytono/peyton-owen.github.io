@@ -225,7 +225,9 @@ var gcd = function(x, y) {
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
   // base
-
+  if(str1.length === 0 && str2.length === 0){
+    return true;
+  }
   // recursion
   if(str1[0] !== str2[0]){
     return false;
