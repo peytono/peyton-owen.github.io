@@ -174,6 +174,8 @@ var palindrome = function(string, stringAltered = '', reversed = '') {
   }
 };
 
+// checking git is back up
+
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
 // modulo(5,2) // 1
