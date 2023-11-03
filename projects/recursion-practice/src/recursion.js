@@ -72,7 +72,12 @@ var sumBelow = function(n, output = 0) {
   } else if(n < 0){
     return sumBelow(n + 1, output);
   }
+
+
 };
+
+/*
+*/
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
