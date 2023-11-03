@@ -266,18 +266,53 @@ var reverseArr = function(array, output = []) {
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, output = []) {
+  // base - if length is 0 return output
+  if(length === 0){
+    return output;
+  }
+  // recursion
+  // push value to output
+  output.push(value);
+  // call buildlist subtracting 1 from length
+  return buildList(value, length - 1, output);
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, count = 0) {
+  // base - if array length is zero return count
+  if(array.length === 0){
+    return count;
+  }
+  // recursion
+  // if value is equal to array at zero index
+  if(value === array[0]){
+    // add 1 to count
+    count += 1;
+  }
+  // return a call to countOccurance with array splicing off zero index
+  return countOccurrence(array.splice(1), value, count);
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+var rMap = function(array, callback, output = [], arrayCopy = []) {
+  if(output.length === 0){
+    for(let i = 0; i < array.length; i++){
+      arrayCopy.push(array[i]);
+    }
+  }
+  // base - if array length is zero return output
+  if(arrayCopy.length === 0){
+    return output;
+  }
+  // recursion
+  // apply callback function to array at zero index and push result to output array
+  output.push(callback(arrayCopy[0]));
+  // call rMap w/ array at zero index spliced off
+  return rMap(array, callback, output, arrayCopy.splice(1));
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
