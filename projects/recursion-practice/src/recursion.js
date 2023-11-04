@@ -347,8 +347,41 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
-  
+var nthFibo = function(n, fibArray = []) {
+  // base if n is zero return last item from fibArray
+  if(n === 0){
+    if(fibArray.length === 0){
+      return 0;
+    //} else if(fibArray.length === 1){
+     // return 1;
+    } else {
+      return fibArray[fibArray.length - 1];
+    }
+  }
+  // recursion
+  // if n is less than 0 return null
+  if(n < 0){
+    return null;
+    // if fibArray length is zero
+  } 
+
+  if(fibArray.length === 0){
+    // push 0 to array
+    fibArray.push(0);
+  // else if fibArray length is 1
+  }
+
+  if(fibArray.length === 1){
+    // push 1 to array
+    fibArray.push(1);
+    // else add the last to elements of fibArray and push to fibArray
+  } else {
+    let newFib = fibArray[fibArray.length - 2] + fibArray[fibArray.length - 1];
+    fibArray.push(newFib);
+  }
+
+  // return nthFibo decrementing n by 1
+  return nthFibo(n - 1, fibArray);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
