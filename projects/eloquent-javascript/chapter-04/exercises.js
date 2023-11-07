@@ -2,8 +2,20 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end, integrating = 1) {
+  // create an array
+  let array = [];
+  if(start === end || integrating < 1){
+    return array;
+  }
+  // create for loop
+  for(let i = start; i <= end; i += integrating){
+    // add numbers in range to array
+    array.push(i);
+  }
 
+  // return array
+  return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
