@@ -91,8 +91,18 @@ function arrayToList(array) {
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 // video in calendar
-function listToArray() {
+function listToArray(list, array = []){
+  // base
+  if(list.rest === null){
+    array.push(list.value);
+    return array;
+  }
+  // recursion
+    // how to update array
+  array.push(list.value);
 
+  return listToArray(list.rest, array);
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
