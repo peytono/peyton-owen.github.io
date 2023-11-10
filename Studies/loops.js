@@ -1,23 +1,22 @@
 /**
  *  LOOPS:
- * 
  *  0. Loops allow us to easily repeat code. They're important in keeping code DRY(Don't Repeat Yourself) and not have to copy and paste things forever.  
- * 
  *  1. Three major JavaScript Loops are while, for, and for-in loops. 
  *      While Loops test a specified condition for a truthy value, and will execute the statement inside as long as it's true. The condition check happens before the loop statement is executed, if false the program exits the loop and will no longer execute code. The while loop requires incrementation or decrementation so that it doesn't run infinitely and crash your program.
  *      For Loops, like the while loop test a specified condition for a truthy value in order to execute code. Instead of just the condition in parenthesis the for loop is setup with initialization of a variable, a condition, and an afterthought(incrementation or decrementation to ensure the code stops), all seperated by a semicolon. Afterwhich a code block can be executed, if condition is true.
  *      For...in Loops allow us to iterate over an object. Where you would have a condition in other loops, in a for in loop you declare a variable followed by, the word 'in' and the objects name or using a keyword for an object. Again, afterwards is where you will execute your code.
- * 
- *  2. Be able to loop any number of times, forward counting up to some limit, backward counting down to 0.
- * 
+ *  2. Be able to loop any number of times, forward counting up to some limit, backward counting down to 0. 
  *  3. Loop over an Array, forwards and backwards
- * 
  *  4. Loop over an Object
- * 
- * 
  *  */
 
 // 1. While, For, and For-In Loops //
+/*
+ There are three major JavaScipt loops: While, For, and For-In Loops. 
+ For and while loops are similar, mostly differing in syntax, 
+ for loops are typically better for iterating through an array.
+ For in loops allow us to iterate over objects. 
+*/
 
 // While
 var i = 0; // initializes variable i to 0
@@ -47,6 +46,7 @@ for (var key in person) {
 
 
 // 2. Be able to loop any number of times, forward counting up to some limit, backward counting down to 0. //
+// Loops allow you to iterate how you need, forward, backsward, or skipping iterations.
 
 // Loop forward couting up to some limit
 var tooManyNumbers = [] // initializes a variable tooManyNumbers to an empty array
@@ -63,6 +63,7 @@ for (var y = 300; y >= 0; y--){ // starts loop at 300 and works backwards one at
 console.log(threeHundredToZero); // an array containing numbers 300-0
 
 // 3. Loop over an Array, forwards and backwards //
+// While loops and for loops allow you to iterate over arrays however you need
 
 // Loop forwards over an array
 for (var index = 0; index < numbers.length; index++){ // iterates through numbers array starting at the 0 index[5, 10, 15...125]
@@ -78,6 +79,8 @@ console.log(numbers); // logs numbers array to console [5, 10, 15...125]
 
 
 // 4. Loop over an object //
+// For in loops allow you to iterate over objects
+
 var personCopy = {}; // initializes personCopy to an empty object
 for (var key in person) { // starts for in loop to iterate over person object
     personCopy[key] = person[key]; // adds the current key in iteration to key in personCopy w/ value being the current iterations value
