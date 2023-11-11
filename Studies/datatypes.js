@@ -140,4 +140,32 @@ var array = [
 ];
 
 
-// 12. Primitive/Simple data types are copy by value, while complex data types are copy be reference. //
+// 12. Primitive/Simple data types are copy by value, while complex data types are copy by reference. //
+/*
+ With simple data types, if you assign one variable to the other, 
+ it takes a copy of that data and gives it to the new variable. 
+ The variables are now independent and will no longer refer to each other.
+*/
+
+var x = 4; // variable x is initialized to 4
+
+var y = x; // variable y is initialized to x => y is 4
+
+y++; // variable y is 5
+
+console.log(x); // variable x is still 4
+
+/*
+ With complex data types, if you assign one to the other, 
+ it assigns it to a reference to that complex data type. 
+ Any time you make changes to one variable, 
+ it effects the data type it's referenced to. 
+ The other variable will still be effected by changes. 
+*/
+
+var opSparkStudent = person; // variable opSparkStudent now references the same object as person
+
+delete person.age; // deletes the age property from the object person refers to
+
+console.log(person); // person no longer includes age property
+console.log(opSparkStudent); // opSparkStudent also no longer includes age property, since they refer to the same object
