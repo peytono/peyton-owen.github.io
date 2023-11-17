@@ -452,7 +452,7 @@ module.exports.some = some;
  * 
  * @param { Array } array: Function takes in an array.
  * @param { Function } function: Function takes in a function.
- * @param { Number or String } seed: Function takes in a seed, typically a number.
+ * @param { Any Value } seed: Function takes in a seed, typically a number, but can be ANY value.
  * 
  * @returns: Function returns the accumlative value of result, 
  * after adding calls to <function> on every element in <array> to the seed, 
