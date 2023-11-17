@@ -48,8 +48,28 @@ let numbers = [1, 2, 3, 4]; // numbers is now declared and assigned to an array 
 
 numbers = [5, 6, 7, 8]; // numbers is reassigned to a new array with new numbers
 
+if(age){ // checks if age's value is truthy
+    let ageChange = 3; // a variable is declared within the if statement, giving the variable the block scope of this if statement
+    age += ageChange; // uses the block scoped variable to reassign the global variable
+} else {
+    console.log('age is not defined'); // this is logged if age's value was not truthy
+}
+
+console.log(ageChange); // this receives a reference error because let variables are block scoped and not accesible outside their scope
+
 // const
 const add = (x, y) => x + y; // const was used to declare the function add
+
+if(age){ // checks if age is truthy
+    age += 3; // adds 3 to the global variable age
+    const ageChangeMessage = 'your age has been changed'; // adds a variable with const inside the if statement, making it's scope this block of code
+    console.log(ageChangeMessage); // this will log the new const declared variable
+} else {
+    console.log('age is not defined'); // will log this message if age was not found to be truthy
+}
+
+console.log(ageChangeMessage); // this receives a reference error because const variables are block scoped and not accesible outside their scope
+
 
 // 3. Hoisting //
 /*
@@ -67,5 +87,8 @@ function subtract(x, y){ // this is a function declaration, the subtract functio
 }
 
 const skyColor = 'blue'; // this will not be hoisted
+
+console.log(name); // because of hoisting we currently have access to the variable name, but not its value
+// logs undefined
 
 var name = 'Peyton Owen'; // declaration of name will be hoisted, but value will not be
